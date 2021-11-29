@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, 
+initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Header</h1>
+    <p>Paragraph</p>
+    <a href="#">link</a>
+    <img src="" alt="" />
+    <div class="x">Div with a class</div>
+    <div id="y">Div with an id</div>
+    <input type="text" />
+    <input type="text" />
+    <input type="text" />
+</body>
+<script>
+    let res = [];
+    res.push(document.getElementsByTagName('h1'));
+    res.push(document.getElementsByTagName('p'));
+    res.push(document.getElementsByTagName('img'));
+    res.push(document.getElementsByTagName('div'));
+    res.push(document.getElementsByTagName('input'));
+    console.log(res);
+    let res2 = [];
+    res2.push(document.querySelector('h1'));
+    res2.push(document.querySelector('p'));
+    res2.push(document.querySelector('img'));
+    res2.push(document.querySelector('img'));
+    res2.push(document.querySelector('div'));
+    res2.push(document.querySelector('input'));
+    console.log(res2);
+
+    let res3 = document.querySelectorAll('input');
+    res3.forEach(item => {
+        console.log(item);
+    })
+</script>
+
+</html>
