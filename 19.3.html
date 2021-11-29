@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        input {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 32px;
+        }
+        
+        button {
+            height: 100px;
+            width: 300px;
+            background-color: black;
+            color: #fff;
+            font-size: 32px;
+        }
+        
+        .in {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Text To Copy</h1>
+    <h2>123456</h2>
+    <div class="in">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+
+    </div>
+    <button id="btn">verify</button>
+</body>
+<script>
+    let d_in = document.querySelector('.in');
+    const i = d_in.children;
+    for (let j = 0; j < i.length; j++) {
+        i[j].maxLength = 1
+        i[j].addEventListener('input', (e) => {
+            if (e.target.value !== null && j < i.length - 1) {
+
+
+                i[j].nextElementSibling.focus();
+
+            } else {
+                i[j].focus();
+            }
+
+            return;
+        });
+    }
+    let btn = document.querySelector("#btn");
+    btn.addEventListener('click', () => {
+        for (let j = 0; j < i.length; j++) {
+            i[j].value = null
+        }
+    });
+    const target = document.querySelector('h2');
+
+    d_in.addEventListener('paste', (event) => {
+        let paste = (event.clipboardData || window.clipboardData).getData('text');
+        i[0].value = null;
+        for (let j = 0; j < i.length; j++) {
+            i[j].value = paste[j];
+            i[0] = null;
+        }
+    });
+</script>
+
+</html>
