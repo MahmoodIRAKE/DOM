@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        input {
+            height: 100px;
+            width: 300px;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 32px;
+        }
+        
+        button {
+            height: 100px;
+            width: 150px;
+            background-color: black;
+            color: #fff;
+            font-size: 32px;
+        }
+        
+        .in {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Enter Age</h1>
+    <input type="text">
+    <button id="btn">verify</button>
+    <h2>CAn You?</h2>
+
+</body>
+<script>
+    let input = document.querySelector('input');
+    let btn = document.querySelector('#btn');
+    let h2 = document.querySelector('h2');
+    let reg = new RegExp('^[0-9]*$');
+    btn.addEventListener('click', () => {
+        let str = input.value;
+        if (reg.test(str) == false) {
+            h2.innerText = "!!!!! Must To Enter Number !!!!!"
+            return false;
+        }
+        if (parseInt(str) >= 18) {
+            h2.innerText = "You Can Drink Hooo Yeah"
+        }
+        if (parseInt(str) < 18) {
+            h2.innerText = "You Can not Drink BOOOOOOOOOOOOOOY"
+        }
+
+    })
+</script>
+
+</html>

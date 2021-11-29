@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        button {
+            height: 100px;
+            width: 150px;
+            background-color: black;
+            color: #fff;
+            font-size: 32px;
+        }
+        
+        h2 {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn1">+</button>
+    <h2>Make Me Big</h2>
+    <button id="btn2">-</button>
+</body>
+<script>
+    let btn1 = document.querySelector('#btn1');
+    let btn2 = document.querySelector('#btn2');
+    let h2 = document.querySelector('h2');
+    h2.style.fontSize = "22px";
+    let str = h2.style.fontSize;
+    str = str.slice(0, str.indexOf('p'));
+    str = parseInt(str);
+    btn1.addEventListener('click', () => {
+        if (h2.style.fontSize === '100px') {
+            h2.style.fontSize = '100px';
+            h2.innerText = 'Make Me Big Opps REached 100px';
+        } else {
+            str++;
+            h2.style.fontSize = str + 'px';
+        }
+    })
+    btn2.addEventListener('click', () => {
+
+
+
+
+        if (h2.style.fontSize === '6px') {
+            h2.style.fontSize = '6px';
+            h2.innerText = 'Make Me Big Opps REached 6px';
+        } else {
+            str--;
+            h2.style.fontSize = str + 'px';
+        }
+    })
+</script>
+
+</html>
