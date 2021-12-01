@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        button {
+            height: 100px;
+            width: 150px;
+            background-color: black;
+            color: #fff;
+            font-size: 32px;
+        }
+        
+        h2 {
+            font-size: 14px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Enter Your Info</h1>
+    <form id='signup'>
+        <input name='age' id='age' type="text" placeholder="Age">
+        <input name='email' id='email' type="email" placeholder="Email">
+        <input name='name' id='name' type="text" placeholder="name">
+        <input type="submit">
+    </form>
+
+</body>
+<script>
+    let form = document.querySelector('#signup');
+    let age = document.querySelector('#age');
+    let email = document.querySelector('#email');
+    let userName = document.querySelector('#name');
+    let data_form = {};
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let arr = [age, email, userName]
+        for (let i = 0; i < arr.length; i++) {
+            data_form[arr[i].name] = arr[i].value;
+        }
+        var r = confirm(`your info: ${data_form['age']},${data_form['name']},${data_form['email']}`);
+
+        if (r == true) {
+            confirm('congratulations you successfully sent this form');
+            for (let i = 0; i < arr.length; i++) {
+                arr[i].value = '';
+            }
+
+        } else {
+            confirm('change information');
+        }
+
+    });
+</script>
+
+</html>

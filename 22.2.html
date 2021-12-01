@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        button {
+            height: 100px;
+            width: 150px;
+            background-color: black;
+            color: #fff;
+            font-size: 32px;
+        }
+        
+        h2 {
+            font-size: 14px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #img1 {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Check The Box</h1>
+    <form id='signup'>
+        <input name='check' id='check' type="checkbox" placeholder="Check It">
+    </form>
+    <div id='img1'> <img src="./smil.jpg" alt="" height="200px" width='200px'> </div>
+</body>
+<script>
+    let imgDiv = document.querySelector('#img1')
+    let check = document.querySelector('#check');
+    check.addEventListener('input', (e) => {
+        console.log(e);
+        if (e.target.checked) {
+            imgDiv.style.display = 'block';
+        } else {
+            imgDiv.style.display = 'none';
+        }
+    })
+</script>
+
+</html>
